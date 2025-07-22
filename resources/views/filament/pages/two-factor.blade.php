@@ -1,8 +1,11 @@
 <x-filament-panels::page.simple>
-    <x-filament-panels::form wire:submit="authenticate">
+    <form wire:submit="authenticate">
         {{ $this->form }}
 
-        <x-filament-panels::form.actions :actions="$this->getCachedFormActions()"
-            :full-width="$this->hasFullWidthFormActions()" />
-    </x-filament-panels::form>
+        <div class="flex flex-wrap items-center gap-4 justify-start">
+            @foreach ($this->getCachedFormActions() as $action)
+                {{ $action }}
+            @endforeach
+        </div>
+    </form>
 </x-filament-panels::page.simple>
